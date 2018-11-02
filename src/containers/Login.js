@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import React, { Component } from 'react'
+import { FormGroup, FormControl, ControlLabel } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import LoaderButton from '../components/LoaderButton';
 import { Auth } from 'aws-amplify';
 
@@ -49,10 +50,12 @@ export default class Login extends Component {
 						<ControlLabel>Email</ControlLabel>
 						<FormControl autoFocus type="email" value={this.state.email} onChange={this.handleChange} />
 					</FormGroup>
+
 					<FormGroup controlId="password" bsSize="large">
 						<ControlLabel>Password</ControlLabel>
 						<FormControl value={this.state.password} onChange={this.handleChange} type="password" />
 					</FormGroup>
+
 					<LoaderButton
 						block
 						bsSize="large"
@@ -62,6 +65,8 @@ export default class Login extends Component {
 						text="Login"
 						loadingText="Logging in…"
 					/>
+
+					<Link to="/reset_pw">Reset password</Link>
 				</form>
 			</div>
 		);
